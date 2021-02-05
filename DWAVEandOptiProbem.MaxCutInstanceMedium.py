@@ -25,9 +25,6 @@ print()
 
 
 
-
-
-
 ##                RESOLUTION EXACTE                ##
 # On resout de maniere exact, sans recuit quantique
 from dimod.reference.samplers import ExactSolver
