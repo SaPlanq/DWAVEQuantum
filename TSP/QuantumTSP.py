@@ -1,24 +1,15 @@
 from random import randint
 from collections import defaultdict
 from dwave.system import DWaveSampler, EmbeddingComposite
-# Déclaration des etudiants et projets
-students = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-projects = [0, 1, 2]
+# cities
+cities = [0, 1, 2, 3]
  
-size = len(students) * len(projects)
- 
-# Déclaration des arêtes
-edges = []
- 
-o1 = -1000
-o2 = 30
-o3 = 10000
+size = len(cities)**2
+
 # Déclaration des poids et des aretes
-w = {(0, 0): o1, (0, 1): o2, (0, 2): o3, (1, 2): o2, (1, 0): o3, (1, 1): o1, (2, 1): o1, (2, 0): o3, (2, 2): o2, (3, 0): o3, (3, 1): o2, (3, 2): o1, (4, 2): o2, (4, 1): o3, (4, 0): o1, (5, 1): o1, (5, 0): o3, (5, 2): o2, (6, 2): o3, (6, 1): o1, (6, 0): o2, (7, 0): o1, (7, 1): o3, (7, 2): o2, (8, 0): o3, (8, 2): o1, (8, 1): o2}
+cij = {(0, 0): 0, (0, 1): 10, (0, 2): 10, (0, 3): 14, (1, 0): 10, (1, 1): 0, (1, 2): 14, (1, 3): 10, (2, 0): 10, (2, 1): 14, (2, 2): 0, (2, 3): 10,(3, 0): 14, (3, 1): 10, (3, 2): 10, (3, 3): 0}
 edges = [(0, 10), (0, 11), (1, 9), (1, 10), (2, 9), (2, 11), (3, 10), (3, 11), (4, 11), (4, 9), (5, 9), (5, 11), (6, 10), (6, 9), (7, 10), (7, 11), (8, 11), (8, 10)]
- 
-# Sumary choice 1
-forMe = {0 : 1, 1 : 0, 2 : 0, 3 : 1, 4 : 2, 5 : 0, 6 : 1, 7 : 1, 8 : 0}
+
  
 def get_index(student_index, project_index):
     return student_index * len(projects) + project_index
