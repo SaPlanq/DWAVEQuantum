@@ -6,22 +6,24 @@ cities = [0, 1, 2, 3]
  
 size = len(cities)**2
 
-# Déclaration des poids et des aretes
+# number of cities, edges and costs (distances)
+n = 4
+edges = [(0, 0), (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2), (1, 3), (2, 0), (2, 1), (2, 2), (2, 3), (3, 0), (3, 1), (3, 2), (3, 3)]
 cij = {(0, 0): 0, (0, 1): 10, (0, 2): 10, (0, 3): 14, (1, 0): 10, (1, 1): 0, (1, 2): 14, (1, 3): 10, (2, 0): 10, (2, 1): 14, (2, 2): 0, (2, 3): 10,(3, 0): 14, (3, 1): 10, (3, 2): 10, (3, 3): 0}
-edges = [(0, 10), (0, 11), (1, 9), (1, 10), (2, 9), (2, 11), (3, 10), (3, 11), (4, 11), (4, 9), (5, 9), (5, 11), (6, 10), (6, 9), (7, 10), (7, 11), (8, 11), (8, 10)]
 
+# we enlarge a dimension to take the position one to fit into the matrix. 
+def get_index(city_index, position_index):
+    return city_index * n + position_index
+# reverse of the previous method
+def get_city_and_position(index):
+    return divmod(index,n)
  
-def get_index(student_index, project_index):
-    return student_index * len(projects) + project_index
  
-def get_student_and_project(index):
-    return divmod(index,len(projects))
- 
-coeff = 1
-lagrange_parameter_room = [3 * coeff, 4 * coeff, 2 * coeff]
- 
-lagrange_parameter_only_one = 100
- 
+#
+# coeff = 1
+# lagrange_parameter = [3 * coeff, 4 * coeff, 2 * coeff]
+# lagrange_parameter_only_one = 100
+#
  
 Q = defaultdict(int)
  
