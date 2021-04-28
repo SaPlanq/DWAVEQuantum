@@ -3,7 +3,7 @@ from collections import defaultdict
 from dwave.system import DWaveSampler, EmbeddingComposite
 # cities
 cities = [0, 1, 2, 3]
- 
+position = [0, 1, 2, 3]
 size = len(cities)**2
 
 # number of cities, edges and costs (distances)
@@ -26,6 +26,12 @@ def get_city_and_position(index):
 #
  
 Q = defaultdict(int)
+
+# Objective function: sum of the distances
+for city_i in cities:
+    for city_j in cities:
+        for position_t in position:
+        
  
 # Objective function
 for student_index in students:
